@@ -64,7 +64,18 @@
   </nav>
 
 
-  <form name="reg" action="register.php" method="POST">
+
+
+
+
+
+
+
+
+
+
+
+  <form name="reg" action="registration.php" method="POST">
 
     <div class="container">
       <div align="center">
@@ -123,6 +134,76 @@
       </div>
 
   </form>
+
+
+<?php
+
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "web_prog";
+
+$conn = mysqli_connect($server,$username,$password, $database);
+
+
+  $name = $email = $mobile = $dob = $pass = "";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    if(empty($_POST["name"])){
+
+        $nameErr = "Please enter a valid name";
+
+    }else{
+
+        $name = test_input($_POST["name"]);
+
+        if(!preg_match("/^[a-zA-Z-']*$/",$name)){
+
+            $nameErr = "Only letters and white spaces allowed";
+
+        }
+
+    }
+
+  
+  $name = test_input($_POST['name']);
+  $email = test_input($_POST['email']);
+  $mobile = test_input($_POST['mobile']);
+  $dob = test_input($_POST['dob']);
+  $pass = test_input($_POST['pass']);
+
+  $sql = "INSERT INTO `web_prog`.`registration` ( `name`, `email`, `mobile`, `dob`, `pass`) VALUES ('$name', '$email', '$mobile', '$dob', '$pass');";
+
+  mysqli_query($conn,$sql);
+
+  $conn->close();
+
+ 
+  
+}
+
+
+function test_input($data){
+
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+
+    return $data;
+
+}
+
+?>
+
+
+
+
+
+
+
+
+
 
   </div>
 
