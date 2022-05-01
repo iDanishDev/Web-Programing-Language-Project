@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+// check if the user is already logged in
+if(isset($_SESSION['email']))
+{
+    header("location: index.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,39 +19,69 @@
     <title>Books</title>
 </head>
 
+<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Danish</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="books.html">Books</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="support.html">Support</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
-              </li>
-              
-              
-            </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Danish</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="books.php">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="support.php">Support</a>
+          
+
+        
             
-          </div>
-        </div>
-      </nav>
+            <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-person-circle profile-icon"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <li><a href="registration.php" class="dropdown-item">Sign-Up</a></li>
+                  <li><a href="login.php" class="dropdown-item">Log-In</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a href="myprofile.php" class="dropdown-item disabled">My Profile</a>
+                  </li>
+                  <li>
+                    <a href="logout.php" class="dropdown-item disabled">Sign-Out</a>
+                  </li>
+                </ul>
+              </li>
+            
+          
+
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
 
 
 
@@ -122,7 +164,14 @@ h6{
 
 </style>
 
+<div class="container">
+<br>
+<h3>
+    Most popular:
+  </h3>
 
+  <hr>
+</div>
 
 
 
@@ -130,7 +179,7 @@ h6{
 
       <div class="cards">
         <div class="card">
-          <img class="card__image" src="https://fakeimg.pl/400x300/009578/fff/" alt="">
+          <img class="card__image" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389513301l/20516856.jpg" alt="">
           <div class="card__content">
             <h6>
               Programing in ANSI C
@@ -146,7 +195,7 @@ h6{
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="https://fakeimg.pl/400x300/252c6a/fff/" alt="">
+          <img class="card__image" src="https://www.bookkar.co.in/wp-content/uploads/2018/03/d1-1.jpg" alt="">
           <div class="card__content">
             <h6>
               Object Oriented Programing with C++
@@ -162,7 +211,7 @@ h6{
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="https://fakeimg.pl/400x300/f1db26/000/" alt="">
+          <img class="card__image" src="https://m.media-amazon.com/images/I/51EWRgaqIKL.jpg" alt="">
           <div class="card__content">
             <h6>
               Programing in Java
@@ -178,7 +227,7 @@ h6{
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="https://fakeimg.pl/400x300/252c6a/fff/" alt="">
+          <img class="card__image" src="https://www.mheducation.co.in/media/catalog/product/cache/84c63a40cf0771f03c9446b22a7e0f08/9/7/9789352602582_38.jpeg" alt="">
           <div class="card__content">
             <h6>
               Introduction to Computing and Problem Solving using Python
@@ -194,7 +243,7 @@ h6{
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="https://fakeimg.pl/400x300/009578/fff/" alt="">
+          <img class="card__image" src="https://hackr.io/blog/media/the-book-of-r.jpg?ezimgfmt=rs:179x227/rscb1/ng:webp/ngcb1" alt="">
           <div class="card__content">
             <h6>
               Programing in R

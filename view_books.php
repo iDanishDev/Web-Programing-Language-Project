@@ -127,6 +127,11 @@
 
     }
 
+    a, a:hover, a:focus, a:active {
+     text-decoration: none;
+     color: inherit;
+ }
+
 </style>
 
 
@@ -136,33 +141,37 @@
     <div class="wrapper">
 
 
-        <div class="sidebar">
+          <div class="sidebar">
 
-            <h2>
-                Admin Panel
+          <h2>
+                <a class="a" href="admin.php">Admin Panel</a>
             </h2>
 
             <ul>
 
-                <li>
-                    <a href="#"><i class="fas fa-solid fa-book"></i>Add Books</a>
-                </li>
+<li>
+    <a href="add_books.php"><i class="fas fa-solid fa-book"></i>Add Books</a>
+</li>
 
-                <li>
-                    <a href="#"><i class="fas fa-light fa-book-open"></i>View Books</a>
-                </li>
+<li>
+    <a href="view_books.php"><i class="fas fa-light fa-book-open"></i>Update Books</a>
+</li>
 
-                <li>
-                    <a href="#"><i class="fas fa-solid fa-user"></i>View Users</a>
-                </li>
+<li>
+    <a href="update_categories.php"><i class="fas fa-solid fa-bars"></i>Update Categories</a>
+</li>
 
-                <li>
-                    <a href="#"><i class="fas fa-solid fa-list"></i>View Categories</a>
-                </li>
+<li>
+    <a href="view_users.php"><i class="fas fa-solid fa-user"></i>View Users</a>
+</li>
 
-            </ul>
+<li>
+    <a href="view_categories.php"><i class="fas fa-solid fa-list"></i>View Categories</a>
+</li>
 
-            
+</ul>
+
+
 
         </div>
 
@@ -172,13 +181,46 @@
 
             <div class="header">
 
-                Header
+                DISCLAIMER: Enter data with no redudancy and verified data
 
             </div>
 
             <div class="info" id="section1">
 
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum assumenda tenetur sed suscipit! Perferendis distinctio ratione debitis atque temporibus. Maxime magni fugiat aliquam possimus vero, id sint. Officia, distinctio magni!</div>
+                <div>
+
+                <form class="center" name="view_book">
+
+<div class="mb-3">
+  
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Book name" name="name" style="width: 50%;">
+</div>
+
+<div class="mb-3">
+  
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Author name" name="a_name" style="width: 50%;">
+</div>
+
+<div class="mb-3">
+  
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Publisher" name="publisher" style="width: 50%;">
+</div>
+
+<div class="mb-3">
+  
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ISBN code" name="isbn" style="width: 50%;">
+</div>
+
+
+    <button type="button"  class="btn btn-secondary" onclick="validatebooks()">Update Book</button>
+    <button type="button"  class="btn btn-danger" onclick="deletebooks()">Delete Book</button>
+    
+
+
+
+</form>
+
+                </div>
 
             </div>
 
@@ -188,6 +230,7 @@
 
     </div>
 
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
+    <script src="validate_viewbooks.js"></script>
 </body>
 </html>

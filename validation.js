@@ -101,6 +101,24 @@ function deletebooks(){
 
 }
 
+function updatebooks(){
+
+
+    if(document.forms["view_book"]["name"].value == ""){
+
+        alert("Empty field")
+    }
+
+    else if((document.forms["view_book"]["name"].value == "Balguruswamy")){
+
+        alert("Book Deleted")
+
+    }
+
+    
+
+}
+
 function addcategory(){
 
 
@@ -154,10 +172,12 @@ function login(){
     if( (document.forms["loginform"]["email"].value == "") || (document.forms["loginform"]["inputPassword"].value == "")){
 
         alert("Empty field")
+        return false;
     }
     else if( (document.forms["loginform"]["email"].value == "admin") || (document.forms["loginform"]["inputPassword"].value == "123") ) {
 
-        alert("Logged In")
+        alert("Logged In");
+        return true;
 
     }
 
